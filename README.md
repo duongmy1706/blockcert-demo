@@ -1,4 +1,4 @@
-# BlockCert VanLang — HyperLedger Fabric (Thật) + Docker
+# BlockCert VanLang — HyperLedger Fabric + Docker
 
 Hệ thống xác thực bằng cấp, chứng chỉ số cho Đại học Văn Lang, sử dụng **HyperLedger Fabric v2.2** chạy hoàn toàn trên **Docker**. Không mock, không giả lập — mọi thao tác đều ghi lên Fabric ledger thật.
 
@@ -279,24 +279,4 @@ cd fabric-samples/test-network && ./network.sh down
 docker stop mongodb
 
 # Ctrl+C trên các terminal đang chạy server/frontend
-```
-
----
-
-## Troubleshooting
-
-**Lỗi `Connection profile not found`:**
-- Kiểm tra `CCP_PATH` trong `server/.env` trỏ đúng file `connection-org1.json`
-- Chạy `./network.sh up` trước khi chạy server
-
-**Lỗi `appUser not enrolled`:**
-- Xóa thư mục `server/wallet/` và restart server — nó sẽ tự enroll lại
-
-**Lỗi CORS:**
-- Kiểm tra `FRONTEND_URL` trong `server/.env` khớp với port frontend
-
-**Fabric chaincode không phản hồi:**
-```bash
-# Xem log chaincode
-docker logs $(docker ps | grep educert | awk '{print $1}')
 ```
